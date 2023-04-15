@@ -115,7 +115,7 @@ class MainController extends AbstractController
 
         $qb->setMaxResults('10');
 
-//        return $qb->getDQL();
+//        returntDQL();
         return $qb->getQuery()->getResult();
     }
 
@@ -137,9 +137,9 @@ class MainController extends AbstractController
                 ->setParameter('varCity', $selectedCity);
             $count = count($qb->getQuery()->getResult());
             if ($count < 10) {
-                return "Die Ergebnisse, die in der Stadt ausgewählt werden, sind nicht genug, genommen " . $lenght - $count . " ergebnisse aus der Region oder dem Land";
+                return "The results that are selected in the city are not enough, taken " . $lenght - $count . " results from the region or the country";
             } elseif ($count == 0) {
-                return "Es gibt keine Ergebnisse für die angegebenen Kriterien";
+                return "There are no results for the specified criteria";
             }
         }
         if ($selectedRegion) {
@@ -151,9 +151,9 @@ class MainController extends AbstractController
                 ->setParameter('varRegion', $selectedRegion);
             $count = count($qb->getQuery()->getResult());
             if ($count < 10) {
-                return "Die Ergebnisse der nach Region Gewählten reichen nicht aus, sie werden genommen " . $lenght - $count . " ergebnisse nach Ländern";
+                return "The results of those selected by region are not enough, they are taken " . $lenght - $count . " results by country";
             } elseif ($count == 0) {
-                return "Es gibt keine Ergebnisse für die angegebenen Kriterien";
+                return "There are no results for the specified criteria";
             }
 
         }
@@ -184,9 +184,9 @@ class MainController extends AbstractController
                 ->setParameter('varAge2', $selectedAge + 10);
             $count = count($qb->getQuery()->getResult());
             if ($count < 10) {
-                return "Es gibt nicht genügend Ergebnisse für das ausgewählte Alter, aber es gibt Ergebnisse mit anderen Altersgruppen";
+                return "There are not enough results for the selected age, but there are results with other age groups";
             } elseif ($count == 0) {
-                return "Es gibt keine Ergebnisse für die angegebenen Kriterien";
+                return "There are no results for the specified criteria";
             }
         }
         return null;

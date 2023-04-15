@@ -88,7 +88,7 @@ header {
     scale: 1.1;
     transition: all 0.15s ease;
     background: rgba(208, 202, 244, 0.7);
-    border-radius: 100%;
+    border-radius: 20%;
 }
 .range {
     margin-top: 90px;
